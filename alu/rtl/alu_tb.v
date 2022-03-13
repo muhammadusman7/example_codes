@@ -12,7 +12,7 @@ module alu_tb;
     wire    overflow;
 
     initial begin
-        $dumpfile(alu.vcd);
+        $dumpfile("alu.vcd");
         $dumpvars(0, alu_tb);
         clk = 1'b0; rst_n = 1'b1; opcode = 3'b0;
         in0 = 'd0; in1 = 'd0;
