@@ -2,7 +2,7 @@
 `default_nettype none
 
 module alu #(
-    parameter WIDTH = 16;
+    parameter WIDTH = 16
 ) (
     input   wire                clk, rst_n,     // Active low reset
     input   wire [WIDTH-1:0]    in0, in1,
@@ -12,8 +12,8 @@ module alu #(
 );
     reg     [WIDTH-1:0] reg_in0, reg_in1;  // Registers to store input
     reg     [2:0]       reg_opcode;
-    wire    [WIDTH-1:0] wire_out;
-    wire                wire_overflow;
+    reg     [WIDTH-1:0] wire_out;
+    reg                 wire_overflow;
     
     // Input Registers
     always @(posedge clk) begin                 // Sync reset
@@ -49,7 +49,7 @@ module alu #(
             overflow <= 1'b0;
             out <= 'd0;
         end else begin
-            overflow <= wire_overflow
+            overflow <= wire_overflow;
             out <= wire_out;
         end
     end
